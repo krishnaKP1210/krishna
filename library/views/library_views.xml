@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="library_property_tree" model="ir.ui.view">
+  	<field name="name">library property</field>
+  	<field name="model">library.property</field>
+  	<field name="arch" type="xml">
+  		<tree>
+  			<field name="name"/>
+  			<field name="price"/>
+  			<field name="date"/>
+  		</tree>
+  	</field>
+    </record>
+
+    <record id="library_propery_form" model="ir.ui.view">
+    <field name="name">library property</field>
+    <field name="model">library.property</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+          <center><h3 class="p-3 mb-2 bg-info text-white"><field name="name"/></h3></center>
+          </group>
+        <group>
+          <field name="name"/>
+          <field name="price"/>
+          <field name="date"/>
+          <field name="edition"/>
+        </group>   
+        <notebook>
+          <page string="About Book">
+            <field name="description"/>
+          </page>
+        </notebook>           
+       </sheet>
+      </form>
+    </field>
+   </record>
+
+    <record id="library_property_search" model="ir.ui.view">
+      <field name="name">library property</field>
+      <field name="model">library.property</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="price"/>
+           <field name="name"/>
+           <filter name="Book price" domain="[('price', '>', 200)]"/> 
+           <group expand="1" string="Group By">
+            <filter string="price more then 200" name="price" context="{'group_by': 'price'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</odoo>
