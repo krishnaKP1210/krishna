@@ -17,4 +17,5 @@ def Bill_Calc(unit):
     else:
         print((50 * 1.5) + ((150 - 50) * 2.00) + ((250 - 150) * 3.00) + (unit - 250) * 4)
 
-ans=Bill_Calc()
+Bill_Calc(unit)
+
